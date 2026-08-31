@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANEFF | Soberanía Digital y Criptoeconomía en México</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Montserrat & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#F59E0B',
+                            500: '#D97706',
+                            600: '#B45309',
+                            glow: '#FFD700',
+                        },
+                        amber: {
+                            900: '#451A03',
+                        },
+                        fractal: {
+                            cyan: '#06B6D4',
+                            purple: '#8B5CF6',
+                            emerald: '#10B981',
+                            dark: '#090D16',
+                            card: 'rgba(15, 23, 42, 0.75)'
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(9, 13, 22, 0.85), rgba(9, 13, 22, 0.95)), url('Gemini_Generated_Image_8o31j98o31j98o31.jpg')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090D16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272A;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D97706;
+        }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-panel-hover:hover {
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 40px -10px rgba(217, 119, 6, 0.3);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        /* Golden gradient text */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FFF5C0 0%, #F59E0B 50%, #B45309 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-cyan {
+            background: linear-gradient(135deg, #E0F2FE 0%, #38BDF8 50%, #0284C7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Pulse glow for badges */
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.5); }
+        }
+        .glow-pulse {
+            animation: pulseGlow 3s infinite;
+        }
+
+        /* Reading progress bar */
+        #progress-bar {
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #D97706, #06B6D4, #10B981);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-[#090D16] text-gray-200 font-sans antialiased selection:bg-gold-500 selection:text-black min-h-screen flex flex-col justify-between relative overflow-x-hidden">
+
+    <!-- Reading Progress Indicator -->
+    <div id="progress-bar"></div>
+
+    <!-- Background Image Container with fixed attachment -->
+    <div class="fixed inset-0 z-[-1] bg-hero-pattern bg-cover bg-center bg-no-repeat bg-fixed"></div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-gold-500/20 bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Top-Left Slogan / Logo -->
+                <div class="flex items-center gap-3">
+                    <img src="Messenger_creation_193DEA5B-9CD6-4634-8DB4-F715FFF921EA.jpeg" 
+                         alt="ANEFF Eslogan / Logo" 
+                         class="h-12 w-auto object-contain rounded-lg border border-gold-500/30 shadow-md transition-transform hover:scale-105"
+                         onerror="this.onerror=null; this.src='https://placehold.co/180x50/111827/F59E0B?text=ANEFF+Logo';">
+                    <div class="hidden sm:block">
+                        <span class="block text-xs uppercase tracking-widest text-gold-400 font-semibold">Institucional</span>
+                        <span class="block text-sm font-bold text-white tracking-wide">Ecosistema Web 3.0</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-gray-300">
+                    <a href="#seccion-1" class="hover:text-gold-400 transition-colors">I. Propiedad</a>
+                    <a href="#seccion-2" class="hover:text-gold-400 transition-colors">II. Wallet</a>
+                    <a href="#seccion-3" class="hover:text-gold-400 transition-colors">III. Cadenas</a>
+                    <a href="#seccion-4" class="hover:text-gold-400 transition-colors">IV. México</a>
+                    <a href="#seccion-5" class="hover:text-gold-400 transition-colors">V. Valuación</a>
+                </nav>
+
+                <!-- Token Badges & Actions -->
+                <div class="flex items-center gap-3">
+                    <div class="hidden md:flex items-center gap-2">
+                        <span class="px-3 py-1 text-xs font-mono font-bold bg-gold-500/10 text-gold-400 rounded-full border border-gold-500/30">
+                            $FRQTUM
+                        </span>
+                        <span class="px-3 py-1 text-xs font-mono font-bold bg-cyan-500/10 text-cyan-400 rounded-full border border-cyan-500/30">
+                            $EDUFT
+                        </span>
+                    </div>
+                    <a href="#manifiesto" class="px-4 py-2 text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-400 hover:to-amber-500 text-black rounded-lg transition-all shadow-lg hover:shadow-gold-500/20">
+                        Manifiesto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="relative pt-16 pb-20 lg:pt-24 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full text-center">
+        <!-- Floating Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-gold-500/40 text-xs font-semibold uppercase tracking-widest text-gold-400 mb-8 glow-pulse">
+            <i class="fa-solid fa-layer-group text-xs"></i>
+            <span>Publicación Institucional ANEFF</span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-display tracking-tight text-white leading-tight mb-6">
+            Del Algoritmo a la Soberanía:<br/>
+            <span class="text-gradient-gold">La Arquitectura del Valor en la Era Web 3.0</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-gray-300 font-light leading-relaxed mb-10">
+            Reflexiones institucionales sobre el nacimiento de nuevas cadenas de bloques, la custodia digital y la construcción de un futuro financiero soberano en México.
+        </p>
+
+        <!-- Quick Info Highlights / Cards Grid Header -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto text-left">
+            <div class="glass-panel p-4 rounded-xl border-l-4 border-l-gold-500">
+                <div class="text-xs uppercase font-bold text-gray-400">Paradigma</div>
+                <div class="text-sm font-semibold text-white mt-1">Web 2.0 → Web 3.0</div>
+                <div class="text-xs text-gray-400 mt-1">De inquilinos a propietarios auténticos</div>
+            </div>
+            <div class="glass-panel p-4 rounded-xl border-l-4 border-l-cyan-500">
+                <div class="text-xs uppercase font-bold text-gray-400">Custodia Personal</div>
+                <div class="text-sm font-semibold text-white mt-1">Wallet y Matemáticas</div>
+                <div class="text-xs text-gray-400 mt-1">Clave Pública & Clave Privada</div>
+            </div>
+            <div class="glass-panel p-4 rounded-xl border-l-4 border-l-emerald-500">
+                <div class="text-xs uppercase font-bold text-gray-400">Visión Nacional</div>
+                <div class="text-sm font-semibold text-white mt-1">Soberanía Tecnológica</div>
+                <div class="text-xs text-gray-400 mt-1">Estrategia Fractal Áurea en México</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Body -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 space-y-16" id="manifiesto">
+
+        <!-- Section I -->
+        <section id="seccion-1" class="glass-panel glass-panel-hover p-6 sm:p-10 rounded-2xl relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gold-500/20 to-amber-900/40 border border-gold-500/40 flex items-center justify-center text-gold-400 font-bold font-display text-xl">
+                    I
+                </div>
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Capítulo Uno</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-display text-white">La Evolución de la Propiedad: De Arrendatarios a la Autonomía Digital</h2>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-gray-300 leading-relaxed text-base sm:text-lg">
+                <p>
+                    Desde la visión prospectiva de ANEFF, observamos una transformación profunda en la forma en que la sociedad interactúa, comercia y resguarda lo que le pertenece. Cuando el comercio electrónico irrumpió a finales del siglo pasado, celebramos la rapidez con la que podíamos realizar transacciones a distancia. Sin embargo, tres décadas de desarrollo informático han puesto al descubierto una realidad indispensable de analizar: en la era digital actual (Web 2.0), los usuarios rara vez somos los verdaderos dueños de nuestro espacio o patrimonio digital.
+                </p>
+                <p>
+                    En los entornos centralizados operamos como inquilinos temporales. Entregamos nuestra información personal, identidades y recursos a plataformas custodiadas por corporaciones internacionales. Frente a este panorama, concebimos el paso hacia la Web 2.5 y la Web 3.0 no como una moda de especulación financiera, sino como una herramienta de independencia y certeza. La criptoeconomía propone un modelo donde la confianza no depende del criterio de un tercero, sino de reglas transparentes que devuelven el control de los activos a sus legítimos creadores y usuarios.
+                </p>
+            </div>
+
+            <!-- Comparison Interactive Visual Box -->
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-gray-800">
+                <div class="bg-slate-900/80 p-5 rounded-xl border border-red-500/20">
+                    <div class="flex items-center gap-3 text-red-400 font-semibold mb-2">
+                        <i class="fa-solid fa-building-lock"></i>
+                        <span>Modelo Tradicional Web 2.0</span>
+                    </div>
+                    <p class="text-xs text-gray-400">
+                        Dependencia de intermediarios, datos almacenados en servidores corporativos ajenos, riesgo constante de censura y bloqueo de cuentas.
+                    </p>
+                </div>
+                <div class="bg-slate-900/80 p-5 rounded-xl border border-emerald-500/20">
+                    <div class="flex items-center gap-3 text-emerald-400 font-semibold mb-2">
+                        <i class="fa-solid fa-key"></i>
+                        <span>Paradigma Descentralizado Web 3.0</span>
+                    </div>
+                    <p class="text-xs text-gray-400">
+                        Autenticación criptográfica, tenencia directa de los tokens y registros, soberanía de la identidad y libertad de transacción.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section II -->
+        <section id="seccion-2" class="glass-panel glass-panel-hover p-6 sm:p-10 rounded-2xl relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-900/40 border border-cyan-500/40 flex items-center justify-center text-cyan-400 font-bold font-display text-xl">
+                    II
+                </div>
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-cyan-400">Capítulo Dos</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-display text-white">La Wallet: El Cerrojo y la Firma de Nuestra Autonomía</h2>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-gray-300 leading-relaxed text-base sm:text-lg">
+                <p>
+                    Para comprender esta evolución en la vida diaria, debemos redefinir qué es una <em class="text-white font-semibold not-italic">wallet</em> o billetera digital. Lejos de ser un simple monedero electrónico para guardar dinero, una wallet funciona como una bóveda personal con su respectiva escritura de propiedad, protegida por matemáticas avanzadas.
+                </p>
+                <p>
+                    En esta nueva arquitectura digital, esta herramienta funciona a través de dos llaves indispensables:
+                </p>
+            </div>
+
+            <!-- Two Keys Cards Showcase -->
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Public Key Card -->
+                <div class="bg-slate-900/90 p-6 rounded-xl border border-cyan-500/30 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-envelope-open-text text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">1. La Clave Pública</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Funciona exactamente como una clave CLABE interbancaria o una dirección postal. Es la combinación de datos que compartimos abiertamente con otros para recibir transferencias o verificar nuestra participación en la red.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-800 text-xs font-mono text-cyan-400/80">
+                        Ejemplo: 0x71C...B9A4 (Pública & Compartible)
+                    </div>
+                </div>
+
+                <!-- Private Key Card -->
+                <div class="bg-slate-900/90 p-6 rounded-xl border border-gold-500/30 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-user-shield text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">2. La Clave Privada</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Equivale a una firma autógrafa e intransferible, o a la combinación secreta de nuestra bóveda. Quien guarda esta llave conserva la propiedad real de sus bienes; quien la entrega a un tercero, renuncia a su libertad de decisión.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-800 text-xs font-mono text-gold-400/80">
+                        Intransferible • Custodia Personal Estricta
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 text-gray-300 leading-relaxed text-base sm:text-lg">
+                <p>
+                    En ANEFF consideramos que aprender a usar estas herramientas de forma consciente es el pilar de la libertad económica moderna, permitiendo que cada persona resguarde el fruto de su trabajo sin depender de intermediarios.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section III -->
+        <section id="seccion-3" class="glass-panel glass-panel-hover p-6 sm:p-10 rounded-2xl relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-indigo-900/40 border border-purple-500/40 flex items-center justify-center text-purple-400 font-bold font-display text-xl">
+                    III
+                </div>
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-purple-400">Capítulo Tres</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-display text-white">El Nacimiento de Nuevas Cadenas: Especialización para Servir a la Comunidad</h2>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-gray-300 leading-relaxed text-base sm:text-lg">
+                <p>
+                    Los primeros pasos de esta era fueron marcados por redes pioneras como Bitcoin y Ethereum. Sin embargo, conforme más personas y empresas las utilizan cotidianamente, estas grandes autopistas digitales sufren embotellamientos que elevan las comisiones por uso y ralentizan el servicio. Por ello, el ecosistema ha comenzado a diversificarse de forma natural.
+                </p>
+                <p>
+                    El nacimiento de nuevas cadenas de bloques no obedece a un intento por dividir el mercado, sino a la necesidad de construir caminos especializados. Así como una nación requiere avenidas urbanas, vías de ferrocarril y puertos de carga para fluir adecuadamente, la economía digital necesita redes diseñadas para objetivos específicos.
+                </p>
+                <div class="p-4 rounded-xl bg-purple-950/40 border border-purple-500/30 my-4 text-purple-200 text-sm flex items-start gap-3">
+                    <i class="fa-solid fa-lightbulb text-purple-400 text-lg mt-1"></i>
+                    <div>
+                        <strong class="block text-white mb-1">Infraestructura al servicio de las personas:</strong>
+                        Nuestra postura institucional es que estas nuevas redes deben servir para fortalecer a las personas: facilitar el acceso a la educación financiera, certificar conocimientos académicos y promover el desarrollo local. No vemos la tecnología como un fin en sí mismo, sino como una infraestructura de servicio para el crecimiento de nuestras comunidades.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section IV -->
+        <section id="seccion-4" class="glass-panel glass-panel-hover p-6 sm:p-10 rounded-2xl relative overflow-hidden border-l-4 border-l-gold-500">
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-900/40 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold font-display text-xl">
+                    IV
+                </div>
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-emerald-400">Capítulo Cuatro</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-display text-white">La Encrucijada Mexicana: Entre el Registro Centralizado y la Autonomía Ciudadana</h2>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-gray-300 leading-relaxed text-base sm:text-lg">
+                <p>
+                    Como institución comprometida con el desarrollo de México, consideramos fundamental analizar estos cambios en el marco de nuestra realidad nacional. Hoy asistimos a una aceleración de la digitalización pública y privada: la adopción de herramientas tributarias como la <strong class="text-gold-400">e.firma</strong>, las discusiones legislativas sobre el registro obligatorio de líneas telefónicas y la recolección progresiva de datos biométricos en servidores centrales.
+                </p>
+                <p class="font-medium text-white text-lg sm:text-xl italic border-l-2 border-gold-400 pl-4 py-1">
+                    Ante este panorama, sostenemos con convicción que la soberanía de México en el siglo XXI no solo se defiende en sus fronteras físicas, sino en la capacidad de cada ciudadana y ciudadano para proteger su información y sus recursos en el entorno digital.
+                </p>
+                <p>
+                    Si permitimos que la tecnología sea controlada únicamente por entidades centralizadas o consorcios corporativos externos, limitaremos el margen de independencia del país. La adopción informada de tecnologías descentralizadas permite al emprendedor, al estudiante y al inversionista mexicano resguardar su identidad, proteger su esfuerzo y participar con dignidad en la economía global.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section V -->
+        <section id="seccion-5" class="glass-panel glass-panel-hover p-6 sm:p-10 rounded-2xl relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gold-500/20 to-amber-900/40 border border-gold-500/40 flex items-center justify-center text-gold-400 font-bold font-display text-xl">
+                    V
+                </div>
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Capítulo Cinco</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-display text-white">La Geometría del Valor: El Compromiso de ANEFF</h2>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-gray-300 leading-relaxed text-base sm:text-lg">
+                <p>
+                    Nuestra visión impulsa una economía donde el valor financiero de un activo crezca a la par del desarrollo educativo y cultural de su comunidad.
+                </p>
+                <p>
+                    El valor de nuestra infraestructura digital —representado por el ecosistema <strong class="text-gold-400">$FRQTUM</strong> y su subtoken enfocado en la enseñanza, <strong class="text-cyan-400">$EDUFT</strong>— busca alejarse de la especulación acelerada mediante la implementación de la <span class="text-white font-semibold">Estrategia Fractal Áurea</span>. Basada en los principios de proporción y equilibrio armónico, esta metodología busca estructurar el riesgo con responsabilidad, equilibrar la estabilidad de los portafolios de inversión y distribuir de forma justa los recursos acumulados.
+                </p>
+                <p>
+                    Avanzar paso a paso en el desarrollo de esta infraestructura y consolidar la comunidad de fundadores que le dará vida es el camino que recorremos. Promover este aprendizaje con criterio accesible, sentido de patria y ética social es la labor institucional que asumimos y compartimos con todos ustedes.
+                </p>
+            </div>
+
+            <!-- Token / Portfolio Visual Cards -->
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="p-5 rounded-xl bg-slate-900/80 border border-gold-500/30 flex items-center justify-between">
+                    <div>
+                        <span class="text-xs uppercase font-bold text-gold-400">Token Principal</span>
+                        <h4 class="text-xl font-bold text-white">$FRQTUM</h4>
+                        <p class="text-xs text-gray-400 mt-1">Ecosistema & Reserva de Valor Fractal</p>
+                    </div>
+                    <i class="fa-solid fa-gem text-3xl text-gold-500/50"></i>
+                </div>
+                <div class="p-5 rounded-xl bg-slate-900/80 border border-cyan-500/30 flex items-center justify-between">
+                    <div>
+                        <span class="text-xs uppercase font-bold text-cyan-400">Subtoken Educativo</span>
+                        <h4 class="text-xl font-bold text-white">$EDUFT</h4>
+                        <p class="text-xs text-gray-400 mt-1">Cultura Financiera & Formación Analítica</p>
+                    </div>
+                    <i class="fa-solid fa-graduation-cap text-3xl text-cyan-500/50"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Institutional Sign-off Block -->
+        <div class="glass-panel p-8 sm:p-12 rounded-2xl text-center border-t-2 border-t-gold-500 space-y-6">
+            <div class="inline-block p-3 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 mb-2">
+                <i class="fa-solid fa-stamp text-2xl"></i>
+            </div>
+            
+            <p class="text-lg sm:text-xl font-display font-bold text-gradient-gold max-w-3xl mx-auto italic leading-relaxed">
+                "Manifiesto institucional de ANEFF — Por la divulgación de la cultura financiera, la educación analítica y la soberanía digital en México."
+            </p>
+
+            <div class="pt-4 flex flex-wrap items-center justify-center gap-4 text-xs text-gray-400">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-gold-400"></i> ANEFF Web 3.0
+                </span>
+                <span>•</span>
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-flag text-emerald-400"></i> Soberanía Nacional
+                </span>
+                <span>•</span>
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-infinity text-cyan-400"></i> Estrategia Fractal Áurea
+                </span>
+            </div>
+
+            <!-- Action buttons: Share & Copy -->
+            <div class="pt-6 flex flex-wrap justify-center gap-4">
+                <button onclick="copyManifesto()" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2 border border-gray-700">
+                    <i class="fa-regular fa-copy" id="copy-icon"></i>
+                    <span id="copy-text">Copiar Manifiesto</span>
+                </button>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-lg hover:shadow-blue-500/20">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>Compartir en Facebook</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-panel border-t border-gold-500/20 py-8 px-4 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <img src="Messenger_creation_193DEA5B-9CD6-4634-8DB4-F715FFF921EA.jpeg" alt="ANEFF" class="h-8 w-auto rounded opacity-80" onerror="this.style.display='none'">
+                <span>© 2026 ANEFF. Todos los derechos reservados.</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="#seccion-1" class="hover:text-gold-400 transition-colors">Propiedad</a>
+                <a href="#seccion-2" class="hover:text-gold-400 transition-colors">Wallet</a>
+                <a href="#seccion-3" class="hover:text-gold-400 transition-colors">Cadenas</a>
+                <a href="#seccion-4" class="hover:text-gold-400 transition-colors">México</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll progress bar logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+
+        // Copy Manifesto Text function
+        function copyManifesto() {
+            const manifestoText = `Del Algoritmo a la Soberanía: La Arquitectura del Valor en la Era Web 3.0\n\n` +
+                `Reflexiones institucionales sobre el nacimiento de nuevas cadenas de bloques, la custodia digital y la construcción de un futuro financiero soberano en México.\n\n` +
+                `Manifiesto institucional de ANEFF — Por la divulgación de la cultura financiera, la educación analítica y la soberanía digital en México.`;
+            
+            // Clipboard copy fallbacks
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(manifestoText);
+            } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = manifestoText;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
+
+            const copyTextBtn = document.getElementById('copy-text');
+            const copyIconBtn = document.getElementById('copy-icon');
+
+            copyTextBtn.innerText = '¡Copiado al Portapapeles!';
+            copyIconBtn.className = 'fa-solid fa-check text-emerald-400';
+
+            setTimeout(() => {
+                copyTextBtn.innerText = 'Copiar Manifiesto';
+                copyIconBtn.className = 'fa-regular fa-copy';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
