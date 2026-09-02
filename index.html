@@ -131,17 +131,17 @@
     <!-- Navigation Header -->
     <header class="sticky top-0 z-50 glass-panel border-b border-gold-500/20 bg-opacity-70">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
+            <div class="flex items-center justify-between py-3 min-h-[5.5rem]">
                 
-                <!-- Top-Left Slogan / Logo -->
-                <div class="flex items-center gap-3">
+                <!-- Top-Left Slogan / Logo Aumentado -->
+                <div class="flex items-center gap-4">
                     <img src="Messenger_creation_193DEA5B-9CD6-4634-8DB4-F715FFF921EA.jpeg" 
                          alt="ANEFF Logo" 
-                         class="h-12 w-auto object-contain rounded-lg border border-gold-500/40 shadow-lg shadow-gold-500/10"
-                         onerror="this.onerror=null; this.src='https://placehold.co/180x50/111827/F59E0B?text=ANEFF+Logo';">
+                         class="h-16 sm:h-20 w-auto object-contain rounded-xl border border-gold-500/40 shadow-xl shadow-gold-500/10 transition-transform duration-300 hover:scale-105"
+                         onerror="this.onerror=null; this.src='https://placehold.co/240x80/111827/F59E0B?text=ANEFF+Logo';">
                     <div>
-                        <span class="block text-xs uppercase tracking-widest text-gold-400 font-bold drop-shadow">ANEFF™</span>
-                        <span class="block text-xs text-gray-300 font-medium hidden sm:block">Educación Financiera Fractal</span>
+                        <span class="block text-sm sm:text-base uppercase tracking-widest text-gold-400 font-bold drop-shadow">ANEFF™</span>
+                        <span class="block text-xs sm:text-sm text-gray-300 font-medium hidden sm:block">Educación Financiera Fractal</span>
                     </div>
                 </div>
 
@@ -173,7 +173,7 @@
     </section>
 
     <!-- Main Content Body -->
-    <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 space-y-12">
+    <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 space-y-12">
 
         <!-- SECTION I -->
         <section id="seccion-1" class="glass-panel glass-panel-hover p-8 sm:p-10 rounded-2xl relative">
@@ -370,6 +370,17 @@
 
     </main>
 
+    <!-- Facebook Action Button Section -->
+    <section class="relative z-10 text-center my-10 px-4">
+        <a href="https://www.facebook.com/profile.php?id=61587393931367" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="inline-flex items-center space-x-3 bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 hover:from-blue-600 hover:to-indigo-600 text-white font-sans font-semibold text-xs sm:text-sm px-8 py-3 rounded-full border border-gold-500/50 shadow-xl shadow-blue-900/30 hover:shadow-gold-500/30 hover:scale-105 active:scale-95 transition-all duration-300">
+            <i class="fa-brands fa-facebook text-xl text-white"></i>
+            <span class="tracking-wide">Síguenos en Facebook</span>
+        </a>
+    </section>
+
     <!-- Footer -->
     <footer class="relative z-10 glass-panel border-t border-gold-500/20 py-8 px-4 text-center text-xs text-gray-400">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -483,7 +494,7 @@
                 ctx.moveTo(-flare.size, 0);
                 ctx.lineTo(flare.size, 0);
                 ctx.moveTo(0, -flare.size);
-                ctx.lineTo(flare.size, 0);
+                ctx.lineTo(0, flare.size);
                 ctx.stroke();
 
                 ctx.fillStyle = '#FFFFFF';
