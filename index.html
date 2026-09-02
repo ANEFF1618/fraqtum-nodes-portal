@@ -133,12 +133,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between py-3 min-h-[5.5rem]">
                 
-                <!-- Top-Left Slogan / Logo Aumentado -->
+                <!-- Top-Left Slogan / Logo Circular Pulido sin bordes blancos -->
                 <div class="flex items-center gap-4">
-                    <img src="Messenger_creation_193DEA5B-9CD6-4634-8DB4-F715FFF921EA.jpeg" 
-                         alt="ANEFF Logo" 
-                         class="h-16 sm:h-20 w-auto object-contain rounded-xl border border-gold-500/40 shadow-xl shadow-gold-500/10 transition-transform duration-300 hover:scale-105"
-                         onerror="this.onerror=null; this.src='https://placehold.co/240x80/111827/F59E0B?text=ANEFF+Logo';">
+                    <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-gold-500/50 shadow-xl shadow-gold-500/20 bg-slate-950 flex-shrink-0 transition-transform duration-300 hover:scale-105">
+                        <img src="Messenger_creation_193DEA5B-9CD6-4634-8DB4-F715FFF921EA.jpeg" 
+                             alt="ANEFF Logo" 
+                             class="w-full h-full object-cover scale-110"
+                             onerror="this.onerror=null; this.src='https://placehold.co/100x100/111827/F59E0B?text=ANEFF';">
+                    </div>
                     <div>
                         <span class="block text-sm sm:text-base uppercase tracking-widest text-gold-400 font-bold drop-shadow">ANEFF™</span>
                         <span class="block text-xs sm:text-sm text-gray-300 font-medium hidden sm:block">Educación Financiera Fractal</span>
@@ -164,10 +166,10 @@
             <span class="text-gradient-gold">El Futuro de la Criptoeconomía en México</span>
         </h1>
 
-        <!-- Highlighted Institutional Intro Card (High Contrast & Clear Readability) -->
+        <!-- Highlighted Institutional Intro Card (High Contrast & Concrete/Hybrid Text) -->
         <div class="glass-panel max-w-3xl mx-auto p-6 sm:p-8 rounded-2xl border border-gold-500/40 bg-slate-950/65 shadow-2xl shadow-black/80 backdrop-blur-md">
             <p class="text-base sm:text-lg text-slate-100 leading-relaxed font-normal">
-                Desde la <strong class="text-gold-400 font-bold tracking-wide">ANEFF™</strong> (<span class="text-gold-200 font-medium">Asociación Nacional de Educación Financiera Fractal</span>), presentamos este marco reflexivo sobre el nacimiento de nuevas cadenas de bloques, la custodia digital consciente y la construcción de un <span class="text-white font-semibold underline decoration-gold-500/70 decoration-2 underline-offset-4">futuro financiero soberano en nuestro país</span>.
+                Desde la <strong class="text-gold-400 font-bold tracking-wide">ANEFF™</strong> (<span class="text-gold-200 font-medium">Asociación Nacional de Educación Financiera Fractal</span>), presentamos este marco reflexivo sobre el nacimiento de nuevas cadenas de bloques, la custodia digital consciente y la <span class="text-white font-semibold underline decoration-gold-500/70 decoration-2 underline-offset-4">adopción práctica de modelos financieros híbridos y descentralizados en nuestro país</span>.
             </p>
         </div>
     </section>
@@ -385,7 +387,9 @@
     <footer class="relative z-10 glass-panel border-t border-gold-500/20 py-8 px-4 text-center text-xs text-gray-400">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4">
             <div class="flex items-center gap-3">
-                <img src="Messenger_creation_193DEA5B-9CD6-4634-8DB4-F715FFF921EA.jpeg" alt="ANEFF" class="h-8 w-auto rounded opacity-80" onerror="this.style.display='none'">
+                <div class="w-8 h-8 rounded-full overflow-hidden border border-gold-500/40 bg-slate-950 flex-shrink-0">
+                    <img src="Messenger_creation_193DEA5B-9CD6-4634-8DB4-F715FFF921EA.jpeg" alt="ANEFF" class="w-full h-full object-cover scale-110 opacity-90" onerror="this.parentElement.style.display='none'">
+                </div>
                 <span>ANEFF™ — Asociación Nacional de Educación Financiera Fractal</span>
             </div>
         </div>
@@ -494,7 +498,7 @@
                 ctx.moveTo(-flare.size, 0);
                 ctx.lineTo(flare.size, 0);
                 ctx.moveTo(0, -flare.size);
-                ctx.lineTo(0, flare.size);
+                ctx.lineTo(flare.size, 0);
                 ctx.stroke();
 
                 ctx.fillStyle = '#FFFFFF';
